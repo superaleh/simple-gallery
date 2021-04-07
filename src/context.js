@@ -26,16 +26,6 @@ const reducer = (state, action) => {
         ...state,
         users: action.payload,
       }
-    case 'SET_OPEN_ALBUM':
-      return {
-        ...state,
-        openAlbumId: action.payload,
-      }
-    case 'SET_OPEN_PHOTO':
-      return {
-        ...state,
-        openPhotoIndex: action.payload,
-      }
     default:
       return state
   }
