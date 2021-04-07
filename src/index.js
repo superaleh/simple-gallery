@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { DataProvider } from 'context'
+import 'index.css'
+import Users from 'components/Users'
+import Albums from 'components/Albums'
+import Photos from 'components/Photos'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  return (
+    <div className="gallery">
+      <div className="gallery-wrapper">
+        <DataProvider>
+          <Router>
+            <Switch>
+              <Route path="/users/:userId/albums/:albumId">
+                <Photos />
+              </Route>
+              <Route path="/users/:userId">
+                <Albums />
+              </Route>
+              <Route path="/">
+                <Users />
+              </Route>
+            </Switch>
+          </Router>
+        </DataProvider>
+      </div>
+    </div>
+  )
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(<App />, document.getElementById('root'))

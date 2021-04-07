@@ -1,13 +1,190 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.gallery {
+  display: flex;
+  padding: 50px;
+}
+.gallery-wrapper {
+  width: 1000px;
+  margin: auto;
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+}
+.author {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  padding: 25px;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+}
+
+.albums {
+  margin-bottom: 25px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.album {
+  width: 150px;
+  height: 150px;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.album-text {
+  position: absolute;
+  bottom: 0px;
+  font-size: 12px;
+  padding: 5px;
+  color: #f1f1f1;
+  background-color: #0000002b;
+}
+.album-length {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 12px;
+  padding: 5px;
+  color: #000000;
+  background-color: #f1f1f12b;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+.photo {
+  position: relative;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.author:hover,
+.album:hover,
+.photo:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  z-index: 1;
+}
+
+.back {
+  font-size: 18px;
+  margin-bottom: 7px;
+  cursor: pointer;
+  color: chocolate;
+  display: inline-block;
+}
+.back:hover {
+  color: black;
+}
+
+.popup {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  display: flex;
+  z-index: 1;
+}
+.popup-image {
+  z-index: 2;
+  position: relative;
+  margin: auto;
+}
+.popup-image img {
+  display: block;
+  max-width: 100%;
+}
+.popup-text {
+  padding: 10px;
+  color: #f1f1f1;
+  background-color: #0000007d;
+  position: absolute;
+}
+.popup-blackout {
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.7;
+  z-index: 1;
+}
+.popup-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+  z-index: 3;
+  cursor: pointer;
+}
+.popup-close:before,
+.popup-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -17px;
+  width: 34px;
+  height: 2px;
+  background: dimgray;
+}
+.popup-close:before {
+  transform: rotate(45deg);
+}
+.popup-close:after {
+  transform: rotate(-45deg);
+}
+.popup-prev,
+.popup-next {
+  position: absolute;
+  top: 0px;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+.popup-prev {
+  left: 0px;
+}
+.popup-next {
+  right: 0px;
+}
+.popup-prev:after,
+.popup-next:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid dimgray;
+  border-bottom: none;
+}
+.popup-prev:after {
+  border-right: none;
+  transform: rotate(-45deg);
+}
+.popup-next:after {
+  border-left: none;
+  transform: rotate(45deg);
+}
+.popup-close:hover,
+.popup-prev:hover,
+.popup-next:hover {
+  background-color: #f1f1f1;
 }
